@@ -1,0 +1,69 @@
+(): Explicacion
+[]: Tablas involucradas (Por ahi me falten algunas, pero que son obvias)
+Hay cosas que ya van a estar pero igual las pongo por las dudas.
+
+• Crear viajes:
+	• Uno que este con estado "Sin asignar" (Significa que no tiene choferes y micros asignados [Viaje, Asiento]
+	• Uno que este con estado "Asignado" (Significa que tiene choferes asignados, pero no micros [Viaje, Asiento, ChoferViaje])
+	 Uno que este con estado "En espera" (Significa que tiene choferes y micros asignados y al dia siguiente, va a comenzar el viaje [Viaje, Asiento, ChoferViaje, MicroViaje])
+	• Uno que este con estado "En viaje" (Significa que esta en curso y todavia no termino [Viaje, Asiento, ChoferViaje, MicroViaje])
+	 Uno que este con estado "Finalizado" (Significa que ya termino [Viaje, Asiento, ChoferViaje, MicroViaje])
+	
+	• En lo posible, que haya variacion en los viajes que se puedan comprar: 
+		• Que tengan tantos asientos ocupados como disponibles
+		• Que tengan fechas variadas (En lo posible, que no sean en el mes de la entrega del trabajo, con excepcion de los viajes "En viaje" o "Finalizado")
+
+	•* Tener en cuenta para los asientos ocupados, insertas las ventas.
+	•* Para ambos casos: Viajes de paquete (Sin asientos) y Viajes particulares (Con asientos)
+
+	
+• Crear micros:
+	• Que esten "Disponibles" (Listos para asignar)
+	• Que esten "Disponibles", pero cuando se realice una verificacion pasen a estar en "Dado de baja"
+	• Que esten "Dado de baja" (No se pueden asignar definitivamente. Para que los micros tengan este estado, tienen que haber pasado 10 años. Ejemplo: Micros del 2008 tienen este estado en el 2018.)
+	• Que esten "En reparacion" (No se pueden asignar, pero pronto se podra)
+	• En todas las situaciones: [Micro]
+
+• Errores en los inserts actuales que rompen con la logica del programa:
+	• Estan cobrados los sueldos de "Noviembre", cuando seguimos en Noviembre actualmente. [SueldoEmpleado]
+	• Hay viajes "En espera" pero que no tienen micros asignados. 1*
+	
+
+• Hay cosas que de los inserts actuales ya se pueden usar y funcionan perfecto, y son:
+	• Empleados (Vendedores, Administradores, Administrador del Sistema) [Empleado, Vendedor, Administrador, Chofer] 
+	• Paquetes (Menos los del 1*) [Viaje, Paquete, PaqueteViaje]
+	• Viajes (Menos los del 1*) [Viaje, Asiento]
+	• Sueldos base [Sueldo]
+	• Zonas y talleres [Zona, Taller]
+	• Personas [Persona, Cliente, Empleado, Vendedor, Administrador, Chofer]
+	• Hoteles
+	• Horarios
+	• Sedes
+	• Usuarios y tipos de usuarios
+
+• Cosas que no hacen falta:
+	• Cierres de caja
+	• Notas de credito/debito
+
+• Adicionales:
+	• Si quieren, alguna Licencia de Chofer.
+	• Si quieren, sueldos del mes anterior (Realmente no es necesario pero que se yo) (Octubre)
+
+	
+No tienen que ser muchos, con que pueda probar todo el programa, sin cambiar mucho la fecha de la computadora para que todo sea mas comodo, es suficiente.
+Nombrar al documento como InsertsSituaciones_Agencia (Y que funcionen bien)
+
+• Todo esto, para cubrir estas situacione:
+	• Ficha de viajes
+	• Asignacion de choferes y micros (Controlar disponibilidad de ambos)
+	• Cierre de caja
+	• Nota de credito/debito
+	• Recibos de sueldo (En funcion de notas, ventas, viajes)
+	• Comienzo y finalizacion de viajes
+	• Cambios por averia en ruta
+	• Pago de los sueldos (En funcion de notas, ventas, viajes)
+	• Solicitar licencias
+	• Vender reservas, pasajes
+	• Confirmar reservas provisorias
+	• Cancelar reservas provisorias por limite de tiempo
+	
